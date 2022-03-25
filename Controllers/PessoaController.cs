@@ -1,33 +1,28 @@
 ﻿using glasnost_back.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
 
 namespace glasnost_back.Controllers
 {
-    [Route("api/cnae")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class Cliente_CnaeController : ControllerBase
+    public class PessoaController : ControllerBase
     {
         private readonly ModelDB db;
 
-        public Cliente_CnaeController(ModelDB context)
+        public PessoaController(ModelDB context)
         {
             db = context;
         }
 
         [HttpGet]
-        public IEnumerable<Cliente_Cnae> Get()
+        public IEnumerable<Pessoa> Get()
         {
-
-            return db.Cliente_Cnae
-                .OrderBy(c => c.Codigo);
+            return db.Pessoa
+                .OrderBy(c => c.Nome);
         }
-
-
     }
 }

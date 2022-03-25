@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace glasnost_back.Models
@@ -13,7 +14,7 @@ namespace glasnost_back.Models
         {
             AspNetUsers = new HashSet<AspNetUsers>();
             //Acionista = new HashSet<Acionista>();
-            //Cliente_Cnae_Rel = new HashSet<Cliente_Cnae_Rel>();
+            Cliente_Cnae_Rel = new HashSet<Cliente_Cnae_Rel>();
             Cliente_Responsavel = new HashSet<Cliente_Responsavel>();
             //Comunicado = new HashSet<Comunicado>();
             //Denuncia = new HashSet<Denuncia>();
@@ -22,7 +23,7 @@ namespace glasnost_back.Models
             //DueDiligence_Pessoa = new HashSet<DueDiligence_Pessoa>();
             //Estatutario = new HashSet<Estatutario>();
             //Organograma = new HashSet<Organograma>();
-            //Pessoa = new HashSet<Pessoa>();
+            Pessoa = new HashSet<Pessoa>();
             //ParteRelacionada = new HashSet<ParteRelacionada>();
             //Pessoa_Qualificada = new HashSet<Pessoa_Qualificada>();
             //Procurador = new HashSet<Procurador>();
@@ -77,15 +78,13 @@ namespace glasnost_back.Models
         public int RiscoCompliance_Id { get; set; }
         public int? Cliente_Tipo_Id { get; set; }
         public virtual Cliente_Tipo Cliente_Tipo { get; set; }
-
-
         public virtual Cliente_RiscoCompliance Cliente_RiscoCompliance { get; set; }
 
         public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
-        //public virtual ICollection<Acionista> Acionista { get; set; }
-        //public virtual ICollection<Cliente_Cnae_Rel> Cliente_Cnae_Rel { get; set; }
-        public virtual ICollection<Cliente_Responsavel> Cliente_Responsavel { get; set; }
 
+        //public virtual ICollection<Acionista> Acionista { get; set; }
+        public virtual ICollection<Cliente_Cnae_Rel> Cliente_Cnae_Rel { get; set; }
+        public virtual ICollection<Cliente_Responsavel> Cliente_Responsavel { get; set; }
 
         //public virtual ICollection<Comunicado> Comunicado { get; set; }
         //public virtual ICollection<Denuncia> Denuncia { get; set; }
@@ -94,7 +93,7 @@ namespace glasnost_back.Models
         //public virtual ICollection<DueDiligence_Pessoa> DueDiligence_Pessoa { get; set; }
         //public virtual ICollection<Estatutario> Estatutario { get; set; }
         //public virtual ICollection<Organograma> Organograma { get; set; }
-        //public virtual ICollection<Pessoa> Pessoa { get; set; }
+        public virtual ICollection<Pessoa> Pessoa { get; set; }
         //public virtual ICollection<ParteRelacionada> ParteRelacionada { get; set; }
         //public virtual ICollection<Pessoa_Qualificada> Pessoa_Qualificada { get; set; }
         //public virtual ICollection<Procurador> Procurador { get; set; }
@@ -102,14 +101,14 @@ namespace glasnost_back.Models
         //public virtual ICollection<Treinamento> Treinamento { get; set; }
         //public virtual ICollection<Treinamento_Cliente_Rel> Treinamento_Cliente { get; set; }
 
-        //[NotMapped]
-        //public bool AcaoNegada { get; set; }
 
-        //[NotMapped]
-        //public HttpPostedFileBase ArquivoLogo { get; set; }
 
-        //[NotMapped]
-        //public HttpPostedFileBase ArquivoCronograma { get; set; }
+        [NotMapped]
+        public List<AspNetUsers> users_Responsaveis { get; set; }
+
+        [NotMapped]
+        public List<Cliente_Cnae> cnaes { get; set; }
+
 
     }
     public class Endereco

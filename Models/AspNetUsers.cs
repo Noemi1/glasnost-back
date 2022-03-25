@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace glasnost_back.Models
 {
+    //[Table("AspNetUsers")]
     public partial class AspNetUsers
     {
         public AspNetUsers()
         {
             //AspNetUserClaims = new HashSet<AspNetUserClaims>();
             //AspNetUserLogins = new HashSet<AspNetUserLogins>();
-            //AspNetUserRoles = new HashSet<AspNetUserRoles>();
+            AspNetUserRoles = new HashSet<AspNetUserRoles>();
             Cliente_Responsavel = new HashSet<Cliente_Responsavel>();
             //Comunicado_AspNetUsers_Rel = new HashSet<Comunicado_AspNetUsers_Rel>();
             //Comunicado_Criacao = new HashSet<Comunicado>();
@@ -64,7 +67,7 @@ namespace glasnost_back.Models
 
         public int? Cliente_Id { get; set; }
 
-        //public Pessoa Pessoa { get; set; }
+        public Pessoa Pessoa { get; set; }
 
         public Cliente Cliente { get; set; }
 
@@ -72,7 +75,7 @@ namespace glasnost_back.Models
 
         //public virtual ICollection<AspNetUserLogins> AspNetUserLogins { get; set; }
 
-        //public virtual ICollection<AspNetUserRoles> AspNetUserRoles { get; set; }
+        public virtual ICollection<AspNetUserRoles> AspNetUserRoles { get; set; }
 
         public virtual ICollection<Cliente_Responsavel> Cliente_Responsavel { get; set; }
 
@@ -105,6 +108,9 @@ namespace glasnost_back.Models
         //public virtual ICollection<Relatorio_Denuncias> Relatorio_Denuncias { get; set; }
 
         //public virtual ICollection<Comunicado_AspNetUsers_Rel> Comunicado_AspNetUsers_Rel { get; set; }
+
+        [NotMapped]
+        public virtual ICollection<AspNetRoles> roles { get; set; }
 
 
     }
