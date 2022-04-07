@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text.Json.Serialization;
@@ -101,15 +102,6 @@ namespace glasnost_back.Models
         //public virtual ICollection<Treinamento> Treinamento { get; set; }
         //public virtual ICollection<Treinamento_Cliente_Rel> Treinamento_Cliente { get; set; }
 
-
-
-        [NotMapped]
-        public List<AspNetUsers> users_Responsaveis { get; set; }
-
-        [NotMapped]
-        public List<Cliente_Cnae> cnaes { get; set; }
-
-
     }
     public class Endereco
     {
@@ -118,6 +110,14 @@ namespace glasnost_back.Models
         public string cidade { get; set; }
         public string estado { get; set; }
 
+    }
+
+    public class ClienteCreate
+    {
+        [Required]
+        public Cliente cliente { get; set; }
+        public List<AspNetUsers> users { get; set; }
+        public List<Cliente_Cnae> cnaes { get; set; }
     }
 
 }

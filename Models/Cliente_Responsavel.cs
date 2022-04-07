@@ -20,6 +20,9 @@ namespace glasnost_back.Models
         public virtual Cliente Cliente { get; set; }
         public virtual AspNetUsers User { get; set; }
 
+        [NotMapped]
+        public bool Excluir { get; set; }
+
 
     }
 }

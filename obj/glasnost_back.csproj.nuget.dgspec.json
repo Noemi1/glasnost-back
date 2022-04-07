@@ -65,6 +65,14 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "Microsoft.WindowsAzure.ConfigurationManager": {
+              "target": "Package",
+              "version": "[3.2.3, )"
+            },
+            "WindowsAzure.Storage": {
+              "target": "Package",
+              "version": "[9.3.3, )"
             }
           },
           "imports": [

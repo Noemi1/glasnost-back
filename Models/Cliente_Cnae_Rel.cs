@@ -15,5 +15,8 @@ namespace glasnost_back.Models
         public virtual Cliente_Cnae Cnae { get; set; }
         public virtual Cliente Cliente { get; set; }
 
+        [NotMapped]
+        public bool Excluir { get; set; }
+
     }
 }

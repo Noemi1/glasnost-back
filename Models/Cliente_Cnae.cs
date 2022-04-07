@@ -26,5 +26,6 @@ namespace glasnost_back.Models
 
         public virtual ICollection<Cliente_Cnae_Rel> Cliente_Cnae_Rel { get; set; }
 
+
     }
 }
