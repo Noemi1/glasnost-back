@@ -8,6 +8,82 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\Accounts\**" />
+    <Content Remove="Models\Accounts\**" />
+    <EmbeddedResource Remove="Models\Accounts\**" />
+    <None Remove="Models\Accounts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\Account.cs" />
+    <Compile Remove="Entities\AccountPerfilAcesso.cs" />
+    <Compile Remove="Entities\AccountRefreshToken.cs" />
+    <Compile Remove="Entities\Acionista.cs" />
+    <Compile Remove="Entities\Area.cs" />
+    <Compile Remove="Entities\BaseEntity.cs" />
+    <Compile Remove="Entities\Cidade.cs" />
+    <Compile Remove="Entities\Comunicado.cs" />
+    <Compile Remove="Entities\Comunicado_Account_Rel.cs" />
+    <Compile Remove="Entities\Denuncia.cs" />
+    <Compile Remove="Entities\Denuncia_Acao.cs" />
+    <Compile Remove="Entities\Denuncia_Arquivo.cs" />
+    <Compile Remove="Entities\Denuncia_Assunto.cs" />
+    <Compile Remove="Entities\Denuncia_Canal.cs" />
+    <Compile Remove="Entities\Denuncia_Categoria.cs" />
+    <Compile Remove="Entities\Denuncia_Denunciante.cs" />
+    <Compile Remove="Entities\Denuncia_Envolvido.cs" />
+    <Compile Remove="Entities\Denuncia_Envolvido_Acao.cs" />
+    <Compile Remove="Entities\Denuncia_Gravidade.cs" />
+    <Compile Remove="Entities\Denuncia_Historico_Status.cs" />
+    <Compile Remove="Entities\Denuncia_Relatorio.cs" />
+    <Compile Remove="Entities\Denuncia_Status.cs" />
+    <Compile Remove="Entities\Denuncia_Urgencia.cs" />
+    <Compile Remove="Entities\Denuncia_Validacao.cs" />
+    <Compile Remove="Entities\Documento.cs" />
+    <Compile Remove="Entities\Documento_Anexo.cs" />
+    <Compile Remove="Entities\Documento_Aprovacao.cs" />
+    <Compile Remove="Entities\Documento_Modelo.cs" />
+    <Compile Remove="Entities\Documento_Modelo_Anexo.cs" />
+    <Compile Remove="Entities\Documento_Tipo.cs" />
+    <Compile Remove="Entities\Documento_Tipo_Categoria.cs" />
+    <Compile Remove="Entities\DueDiligenceAPI.cs" />
+    <Compile Remove="Entities\DueDiligence_Consulta.cs" />
+    <Compile Remove="Entities\DueDiligence_Consulta_Resultado.cs" />
+    <Compile Remove="Entities\DueDiligence_ListaRestrita.cs" />
+    <Compile Remove="Entities\DueDiligence_ListaRestrita_Dados.cs" />
+    <Compile Remove="Entities\DueDiligence_ListaRestrita_Dados_Alias.cs" />
+    <Compile Remove="Entities\DueDiligence_ListaRestrita_Origem.cs" />
+    <Compile Remove="Entities\DueDiligence_Parecer.cs" />
+    <Compile Remove="Entities\DueDiligence_Pessoa.cs" />
+    <Compile Remove="Entities\DueDiligence_Pessoa_ListaRestrita_Rel.cs" />
+    <Compile Remove="Entities\DueDiligence_Status.cs" />
+    <Compile Remove="Entities\Empresa_Responsavel.cs" />
+    <Compile Remove="Entities\Estado.cs" />
+    <Compile Remove="Entities\Estatutario.cs" />
+    <Compile Remove="Entities\Log.cs" />
+    <Compile Remove="Entities\Organograma.cs" />
+    <Compile Remove="Entities\Organograma_Treinamento.cs" />
+    <Compile Remove="Entities\Organograma_Treinamento_Acesso.cs" />
+    <Compile Remove="Entities\Organograma_Treinamento_Envio.cs" />
+    <Compile Remove="Entities\ParteRelacionada.cs" />
+    <Compile Remove="Entities\ParteRelacionada_Tipo.cs" />
+    <Compile Remove="Entities\PDFKey.cs" />
+    <Compile Remove="Entities\Pessoa_Qualificada.cs" />
+    <Compile Remove="Entities\Pessoa_Qualificada_Qualificacao.cs" />
+    <Compile Remove="Entities\Pessoa_Qualificada_Qualificacao_Certificado.cs" />
+    <Compile Remove="Entities\Pessoa_Qualificada_Qualificacao_Rel.cs" />
+    <Compile Remove="Entities\Procurador.cs" />
+    <Compile Remove="Entities\Prospect.cs" />
+    <Compile Remove="Entities\Prospect_Arquivo.cs" />
+    <Compile Remove="Entities\Prospect_Status.cs" />
+    <Compile Remove="Entities\Relatorio_Denuncias.cs" />
+    <Compile Remove="Entities\Treinamento.cs" />
+    <Compile Remove="Entities\Treinamento_Area.cs" />
+    <Compile Remove="Entities\Treinamento_Cliente_Rel.cs" />
+    <Compile Remove="Entities\Treinamento_Pagina.cs" />
+    <Compile Remove="Entities\Treinamento_Pergunta.cs" />
+    <Compile Remove="Entities\Treinamento_Pergunta_Resposta.cs" />
+    <Compile Remove="Entities\Treinamento_Tipo.cs" />
     <Compile Remove="Services\AccountService.cs" />
   </ItemGroup>
 

@@ -32,9 +32,10 @@ namespace glasnost_back
                     x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 });
 
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
+            services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddHttpContextAccessor();
@@ -50,13 +51,9 @@ namespace glasnost_back
         {
             // generated swagger json and swagger ui middleware
             app.UseSwagger();
-            app.UseSwaggerUI(x =>
-            {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json", "ASP.NET Core Sign-up and Verification API");
-                x.RoutePrefix = String.Empty;
-            });
+            app.UseSwaggerUI();
 
-            app.UseRequestLocalization();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

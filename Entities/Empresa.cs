@@ -10,24 +10,8 @@ namespace glasnost_back.Entities
     {
         public Empresa()
         {
-            Acionista = new HashSet<Acionista>();
-            Account = new HashSet<Account>();
             Empresa_Cnae_Rel = new HashSet<Empresa_Cnae_Rel>();
-            Empresa_Responsavel = new HashSet<Empresa_Responsavel>();
-            Comunicado = new HashSet<Comunicado>();
-            Denuncia = new HashSet<Denuncia>();
-            Documento = new HashSet<Documento>();
-            Documento_Modelo = new HashSet<Documento_Modelo>();
-            DueDiligence_Pessoa = new HashSet<DueDiligence_Pessoa>();
-            Estatutario = new HashSet<Estatutario>();
-            Organograma = new HashSet<Organograma>();
             Pessoa = new HashSet<Pessoa>();
-            ParteRelacionada = new HashSet<ParteRelacionada>();
-            Pessoa_Qualificada = new HashSet<Pessoa_Qualificada>();
-            Procurador = new HashSet<Procurador>();
-            Relatorio_Denuncias = new HashSet<Relatorio_Denuncias>();
-            Treinamento = new HashSet<Treinamento>();
-            Treinamento_Cliente = new HashSet<Treinamento_Cliente_Rel>();
         }
 
         public int Id { get; set; }
@@ -81,24 +65,10 @@ namespace glasnost_back.Entities
 
         public virtual Empresa_Tipo Tipo { get; set; }
 
-        public virtual ICollection<Acionista> Acionista { get; set; }
-        public virtual ICollection<Account> Account { get; set; }
         public virtual ICollection<Empresa_Cnae_Rel> Empresa_Cnae_Rel { get; set; }
-        public virtual ICollection<Empresa_Responsavel> Empresa_Responsavel { get; set; }
-        public virtual ICollection<Comunicado> Comunicado { get; set; }
-        public virtual ICollection<Denuncia> Denuncia { get; set; }
-        public virtual ICollection<Documento> Documento { get; set; }
-        public virtual ICollection<Documento_Modelo> Documento_Modelo { get; set; }
-        public virtual ICollection<DueDiligence_Pessoa> DueDiligence_Pessoa { get; set; }
-        public virtual ICollection<Estatutario> Estatutario { get; set; }
-        public virtual ICollection<Organograma> Organograma { get; set; }
         public virtual ICollection<Pessoa> Pessoa { get; set; }
-        public virtual ICollection<ParteRelacionada> ParteRelacionada { get; set; }
-        public virtual ICollection<Pessoa_Qualificada> Pessoa_Qualificada { get; set; }
-        public virtual ICollection<Procurador> Procurador { get; set; }
-        public virtual ICollection<Relatorio_Denuncias> Relatorio_Denuncias { get; set; }
-        public virtual ICollection<Treinamento> Treinamento { get; set; }
-        public virtual ICollection<Treinamento_Cliente_Rel> Treinamento_Cliente { get; set; }
+
+
 
     }
     public class Endereco

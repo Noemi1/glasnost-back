@@ -11,13 +11,13 @@ namespace glasnost_back.Entities
     {
         public Pessoa()
         {
-            Account = new HashSet<Account>();
-            Acionista = new HashSet<Acionista>();
-            Estatutario = new HashSet<Estatutario>();
-            ParteRelacionada = new HashSet<ParteRelacionada>();
-            Pessoa_Qualificada = new HashSet<Pessoa_Qualificada>();
-            Procurador = new HashSet<Procurador>();
-            Organograma = new HashSet<Organograma>();
+            //Account = new HashSet<Account>();
+            //Acionista = new HashSet<Acionista>();
+            //Estatutario = new HashSet<Estatutario>();
+            //ParteRelacionada = new HashSet<ParteRelacionada>();
+            //Pessoa_Qualificada = new HashSet<Pessoa_Qualificada>();
+            //Procurador = new HashSet<Procurador>();
+            //Organograma = new HashSet<Organograma>();
         }
 
         public int Id { get; set; }
@@ -38,12 +38,12 @@ namespace glasnost_back.Entities
 
         public virtual Empresa Empresa { get; set; }
 
-        public virtual ICollection<Account> Account { get; set; }
-        public virtual ICollection<Acionista> Acionista { get; set; }
-        public virtual ICollection<Estatutario> Estatutario { get; set; }
-        public virtual ICollection<ParteRelacionada> ParteRelacionada { get; set; }
-        public virtual ICollection<Pessoa_Qualificada> Pessoa_Qualificada { get; set; }
-        public virtual ICollection<Procurador> Procurador { get; set; }
-        public virtual ICollection<Organograma> Organograma { get; set; }
+        //public virtual ICollection<Account> Account { get; set; }
+        //public virtual ICollection<Acionista> Acionista { get; set; }
+        //public virtual ICollection<Estatutario> Estatutario { get; set; }
+        //public virtual ICollection<ParteRelacionada> ParteRelacionada { get; set; }
+        //public virtual ICollection<Pessoa_Qualificada> Pessoa_Qualificada { get; set; }
+        //public virtual ICollection<Procurador> Procurador { get; set; }
+        //public virtual ICollection<Organograma> Organograma { get; set; }
     }
 }

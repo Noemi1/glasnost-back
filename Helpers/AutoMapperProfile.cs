@@ -16,6 +16,7 @@ namespace glasnost_back.Helpers
             CreateMap<Pessoa, PessoaResponse>();
             CreateMap<PessoaResponse, Pessoa>();
 
+            CreateMap<Empresa_Cnae, CnaeListResponse>();
         }
     }
 }
