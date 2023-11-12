@@ -1,12 +1,12 @@
-﻿namespace glasnost_back.Entities
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    
-    using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+using System.Web;
+
+namespace glasnost_back.Entities
+{
     [Table("Treinamento")]
     public partial class Treinamento
     {
@@ -43,13 +43,13 @@
 
         public string IdAzureVideo { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Treinamento_Tipo Treinamento_Tipo { get; set; }
 
-        public ICollection <Treinamento_Area> Treinamento_Area { get; set; }
+        public ICollection<Treinamento_Area> Treinamento_Area { get; set; }
 
-        public ICollection <Organograma_Treinamento> Organograma_Treinamento { get; set; }
+        public ICollection<Organograma_Treinamento> Organograma_Treinamento { get; set; }
 
         public ICollection<Treinamento_Pergunta> Treinamento_Pergunta { get; set; }
 

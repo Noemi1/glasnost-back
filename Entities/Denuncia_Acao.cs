@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace glasnost_back.Entities
 {
-    
     public partial class Denuncia_Acao
     {
         public Denuncia_Acao()

@@ -1,10 +1,9 @@
 ﻿using glasnost_back.Helpers;
-using MailKit.Net.Smtp;
-using MailKit.Security;
 using Microsoft.Extensions.Options;
-using MimeKit;
-using MimeKit.Text;
 using System;
+using System.Net;
+using System.Net.Mail;
+using System.Text;
 
 namespace glasnost_back.Services
 {
@@ -26,33 +25,28 @@ namespace glasnost_back.Services
         {
             try
             {
-                // create message
-                var email = new MimeMessage();
-                email.From.Add(MailboxAddress.Parse(from ?? "Planner - Bullest <naoresponda.planner@gmail.com>"));
-                email.To.Add(MailboxAddress.Parse(to));
+                // Cria a mensagem de e-mail
+                MailMessage email = new MailMessage();
+                email.From = new MailAddress("naoresponda.planner@gmail.com");
+                email.To.Add(to);
                 email.Subject = subject;
+                email.Body = html;
+                email.IsBodyHtml = true;
+                email.BodyEncoding = Encoding.UTF8;
+                email.SubjectEncoding = Encoding.UTF8;
 
-                email.Body = new TextPart(TextFormat.Html)
-                {
-                    Text = @"
-                        <!doctype html>
-                        <html lang='en'>
-                        <head>
-                          <meta charset='utf-8'>
-                        </head>
-                        <body>
-                            " + html + @"
-                        </body>
-                        </html>
-                    "
-                };
+                string smtpHost = _appSettings.SmtpHost;
+                int smtpPort = _appSettings.SmtpPort;
+                string smtpUsername = _appSettings.SmtpUser;
+                string smtpPassword = _appSettings.SmtpPass;
 
-                // send email
-                using var smtp = new SmtpClient();
-                smtp.Connect(_appSettings.SmtpHost, _appSettings.SmtpPort, SecureSocketOptions.StartTls);
-                smtp.Authenticate(_appSettings.SmtpUser, _appSettings.SmtpPass);
-                smtp.Send(email);
-                smtp.Disconnect(true);
+                // Cria o cliente SMTP
+                SmtpClient smtpClient = new SmtpClient(smtpHost, smtpPort);
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(smtpUsername, smtpPassword);
+                smtpClient.EnableSsl = true;
+
+                smtpClient.Send(email);
             }
             catch (Exception e)
             {

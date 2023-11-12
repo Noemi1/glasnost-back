@@ -23,7 +23,7 @@ namespace glasnost_back.Entities
         public string Assunto { get; set; }
         public int Cliente_Id { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
         public virtual Account UserCriacao { get; set; }
         public virtual Account UserEnvio { get; set; }
 

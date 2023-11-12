@@ -46,7 +46,7 @@ namespace glasnost_back.Entities
 
         public int Documento_Tipo_Id { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Documento_Tipo Documento_Tipo { get; set; }
 
@@ -58,7 +58,7 @@ namespace glasnost_back.Entities
 
         public virtual ICollection<Documento_Aprovacao> Documento_Aprovacao { get; set; }
 
-        public virtual ICollection<Documento_Anexo> Documento_Anexo  { get; set; }
+        public virtual ICollection<Documento_Anexo> Documento_Anexo { get; set; }
 
     }
 }

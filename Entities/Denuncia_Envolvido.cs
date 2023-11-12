@@ -1,10 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace glasnost_back.Entities
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    
     public partial class Denuncia_Envolvido
     {
         public int Id { get; set; }
@@ -19,7 +19,7 @@ namespace glasnost_back.Entities
 
         public int? Denuncia_Envolvido_Acao_Id { get; set; }
 
-        public string Comentarios { get; set; } 
+        public string Comentarios { get; set; }
 
         public virtual Denuncia Denuncia { get; set; }
 

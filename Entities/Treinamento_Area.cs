@@ -1,11 +1,10 @@
-﻿namespace glasnost_back.Entities
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace glasnost_back.Entities
+{
     [Table("Treinamento_Area")]
     public partial class Treinamento_Area
     {

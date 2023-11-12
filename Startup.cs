@@ -1,12 +1,15 @@
 using glasnost_back.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 using System;
 using System.Globalization;
+using System.Text.Json.Serialization;
+using Newtonsoft.Json;
+using glasnost_back.Services;
 
 namespace glasnost_back
 {
@@ -21,28 +24,25 @@ namespace glasnost_back
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ModelDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString")));
+            services.AddDbContext<ModelDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("ConnectionString"), options => options.EnableRetryOnFailure()));
 
             services.AddControllers()
                 .AddJsonOptions(x =>
                 {
-                    x.JsonSerializerOptions.IgnoreNullValues = true;
-                })
-                .AddNewtonsoftJson(x =>
-                {
-                    x.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-                    x.SerializerSettings.Culture = new CultureInfo("pt-BR", false);
+                    x.JsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
                 });
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddSwaggerGen();
 
-            //services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
-
-            //services.AddScoped<ILoggerServices, LoggerServices>();
-
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
             services.AddHttpContextAccessor();
+
+            services.AddScoped<ICnaeService, CnaeService>();
+            services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<IEmpresaService, EmpresaService>();
+            services.AddScoped<IPessoaService, PessoaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,5 @@
+using glasnost_back.Entities;
 using System.ComponentModel.DataAnnotations;
-using Planner.Entities;
 
 namespace glasnost_back.Models.Accounts
 {

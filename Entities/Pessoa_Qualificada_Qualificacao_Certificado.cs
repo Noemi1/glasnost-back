@@ -6,12 +6,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace glasnost_back.Entities
 {
-
     [Table("Pessoa_Qualificada_Qualificacao_Certificado")]
     public class Pessoa_Qualificada_Qualificacao_Certificado
     {
         public int Id { get; set; }
-        
+
         public string Nome { get; set; }
 
         public string IdAzure { get; set; }

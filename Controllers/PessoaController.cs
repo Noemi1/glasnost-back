@@ -1,9 +1,7 @@
-﻿using glasnost_back.Entities;
+﻿using glasnost_back.Helpers;
+using glasnost_back.Models;
+using glasnost_back.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace glasnost_back.Controllers
 {
@@ -11,18 +9,93 @@ namespace glasnost_back.Controllers
     [ApiController]
     public class PessoaController : ControllerBase
     {
-        private readonly ModelDB db;
+        private readonly ModelDBContext db;
+        private readonly IPessoaService _services;
 
-        public PessoaController(ModelDB context)
+        public PessoaController(ModelDBContext context, IPessoaService service)
         {
             db = context;
+            _services = service;
         }
 
-        [HttpGet]
-        public IEnumerable<Pessoa> Get()
+        [HttpGet("All/{empresaId}/{ativo?}")]
+        public ActionResult GetAll(int empresaId, bool? ativo)
         {
-            return db.Pessoa
-                .OrderBy(c => c.Nome);
+            try
+            {
+                return Ok(_services.GetAll(empresaId, ativo));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
         }
+        [HttpGet("{Id}")]
+        public ActionResult Get(int Id)
+        {
+            try
+            {
+                return Ok(_services.Get(Id));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
+        [HttpPost()]
+        public ActionResult Insert(PessoaResponse model)
+        {
+            try
+            {
+                return Ok(_services.Insert(model));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
+        [HttpPut]
+        public ActionResult Update(PessoaResponse model)
+        {
+            try
+            {
+                return Ok(_services.Update(model));
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
+        [HttpPatch("{Id}/{Active}"), ActionName("deactivate")]
+        public ActionResult Deactivate(int Id, bool Active)
+        {
+            try
+            {
+                _services.Deactivated(Id, Active);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
+        [HttpDelete("{Id}")]
+        public ActionResult Delete(int Id)
+        {
+            try
+            {
+                _services.Delete(Id);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
     }
 }

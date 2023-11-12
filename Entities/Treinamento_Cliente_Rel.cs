@@ -13,7 +13,7 @@ namespace glasnost_back.Entities
         public int Cliente_Id { get; set; }
         public int Treinamento_Id { get; set; }
         public virtual Treinamento Treinamento { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         [NotMapped]
         public virtual IEnumerable<Treinamento> Treinamentos { get; set; }

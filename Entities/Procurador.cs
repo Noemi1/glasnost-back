@@ -1,11 +1,10 @@
-﻿namespace glasnost_back.Entities
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace glasnost_back.Entities
+{
     [Table("Procurador")]
     public partial class Procurador
     {
@@ -21,7 +20,7 @@
 
         public virtual Area Area { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Pessoa Pessoa { get; set; }
 

@@ -1,11 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace glasnost_back.Entities
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    
-
     public class Pessoa_Qualificada
     {
         public Pessoa_Qualificada()
@@ -23,7 +22,7 @@ namespace glasnost_back.Entities
 
         public int Pessoa_Id { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Pessoa Pessoa { get; set; }
 

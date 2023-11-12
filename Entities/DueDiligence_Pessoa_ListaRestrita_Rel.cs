@@ -11,7 +11,7 @@ namespace glasnost_back.Entities
     {
         public int Id { get; set; }
 
-        public int DueDiligence_Pessoa_Id{ get; set; }
+        public int DueDiligence_Pessoa_Id { get; set; }
 
         public int DueDiligence_ListaRestrita_Id { get; set; }
 

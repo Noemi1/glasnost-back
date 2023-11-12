@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
+
 namespace glasnost_back.Utils
 {
     public static class Arquivos

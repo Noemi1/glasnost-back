@@ -17,7 +17,7 @@ namespace glasnost_back.Entities
         }
 
         public int Id { get; set; }
-        
+
         public string Pergunta { get; set; }
 
         public int Treinamento_Id { get; set; }

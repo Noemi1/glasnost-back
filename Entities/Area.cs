@@ -5,7 +5,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace glasnost_back.Entities
 {
-
     [Table("Area")]
     public partial class Area
     {

@@ -1,5 +1,5 @@
+using glasnost_back.Entities;
 using System.ComponentModel.DataAnnotations;
-using Planner.Entities;
 
 namespace glasnost_back.Models.Accounts
 {
@@ -9,9 +9,9 @@ namespace glasnost_back.Models.Accounts
         private string _confirmPassword;
         private string _role;
         private string _email;
-        
+
         public string Name { get; set; }
-        public long TelefoneCelular{ get; set; }
+        public long TelefoneCelular { get; set; }
 
         [EnumDataType(typeof(Role))]
         public string Role
@@ -35,7 +35,7 @@ namespace glasnost_back.Models.Accounts
         }
 
         [Compare("Password")]
-        public string ConfirmPassword 
+        public string ConfirmPassword
         {
             get => _confirmPassword;
             set => _confirmPassword = replaceEmptyWithNull(value);

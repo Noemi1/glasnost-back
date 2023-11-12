@@ -1,4 +1,5 @@
-using Planner.Entities;
+using glasnost_back.Entities;
+using glasnost_back.Entities;
 using System;
 using System.Text.Json.Serialization;
 
@@ -20,7 +21,6 @@ namespace glasnost_back.Models.Accounts
 
         [JsonIgnore] // refresh token is returned in http only cookie
         public string RefreshToken { get; set; }
-        public virtual Empresa Empresa { get; set; }
         public virtual AccountPerfilAcesso PerfilAcesso { get; set; }
     }
 }

@@ -9,9 +9,9 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using BC = BCrypt.Net.BCrypt;
-using System.Security.Cryptography;
 
 namespace glasnost_back.Services
 {

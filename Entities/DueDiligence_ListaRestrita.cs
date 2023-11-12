@@ -15,7 +15,7 @@ namespace glasnost_back.Entities
             DueDiligence_Consulta_Resultado = new HashSet<DueDiligence_Consulta_Resultado>();
             DueDiligence_ListaRestrita_Dados = new HashSet<DueDiligence_ListaRestrita_Dados>();
         }
-        public int Id { get; set; }  
+        public int Id { get; set; }
 
         public string Nome { get; set; }
 

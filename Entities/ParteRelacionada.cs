@@ -19,7 +19,7 @@ namespace glasnost_back.Entities
 
         public int ParteRelacionada_Tipo_Id { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Pessoa Pessoa { get; set; }
 

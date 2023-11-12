@@ -22,11 +22,11 @@ namespace glasnost_back.Entities
 
         public int Id { get; set; }
 
-        public int Cliente_Id { get; set; }
+        public int Empresa_Id { get; set; }
 
         public bool PJ { get; set; }
 
-        public long? CPFCNPJ { get; set; }
+        public long Documento { get; set; }
 
         public string Nome { get; set; }
 
@@ -34,7 +34,9 @@ namespace glasnost_back.Entities
 
         public bool Estrangeiro { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public DateTime? DataDesativado { get; set; }
+
+        public virtual Empresa Empresa { get; set; }
 
         public virtual ICollection<Account> Account { get; set; }
         public virtual ICollection<Acionista> Acionista { get; set; }

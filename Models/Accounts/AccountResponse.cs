@@ -1,4 +1,4 @@
-using Planner.Entities;
+using glasnost_back.Entities;
 using System;
 
 namespace glasnost_back.Models.Accounts
@@ -15,7 +15,6 @@ namespace glasnost_back.Models.Accounts
         public DateTime? Updated { get; set; }
         public bool IsVerified { get; set; }
         public DateTime? DataDesativado { get; set; }
-        public virtual EmpresaResponse Empresa { get; set; }
         public virtual AccountPerfilAcesso PerfilAcesso { get; set; }
     }
 }

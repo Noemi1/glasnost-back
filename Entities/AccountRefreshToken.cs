@@ -20,7 +20,7 @@ namespace glasnost_back.Entities
         public string ReplacedByToken { get; set; }
         public bool IsActive => Revoked == null && !IsExpired;
         public bool IsActiveByIp { get; set; }
-        
+
         public Account Account { get; set; }
 
     }

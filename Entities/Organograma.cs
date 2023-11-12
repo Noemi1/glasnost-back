@@ -22,14 +22,14 @@ namespace glasnost_back.Entities
         public bool Ativo { get; set; }
 
         public bool EhArea { get; set; }
- 
+
         public int Cliente_Id { get; set; }
 
         public int? Cliente_Organograma_Id { get; set; }
 
         public int? Pessoa_Id { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Pessoa Pessoa { get; set; }
 
@@ -43,7 +43,7 @@ namespace glasnost_back.Entities
 
         [NotMapped]
         public bool AcaoNegada { get; set; }
-        
+
         [NotMapped]
         public string AreaNome { get; set; }
     }

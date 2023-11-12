@@ -32,7 +32,7 @@ namespace glasnost_back.Entities
 
         public string Observacoes { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public ICollection<DueDiligence_Consulta> DueDiligence_Consulta { get; set; }
 

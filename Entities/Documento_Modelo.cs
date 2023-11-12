@@ -25,7 +25,7 @@ namespace glasnost_back.Entities
 
         public string NomeAzure { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Documento_Tipo Documento_Tipo { get; set; }
 

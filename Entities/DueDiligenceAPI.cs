@@ -61,7 +61,7 @@ namespace glasnost_back.Entities
         }
 
         public partial class Searches_Resultado
-        { 
+        {
             public string Certidao { get; set; }
             public string Link { get; set; }
             public string Protocolo { get; set; }

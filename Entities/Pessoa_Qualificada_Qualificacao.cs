@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace glasnost_back.Entities
 {
-
     [Table("Pessoa_Qualificada_Qualificacao")]
     public class Pessoa_Qualificada_Qualificacao
     {

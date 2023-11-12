@@ -16,6 +16,6 @@ namespace glasnost_back.Entities
         public int AnoRef { get; set; }
         public int MesRef { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
     }
 }

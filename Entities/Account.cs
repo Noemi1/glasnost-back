@@ -12,7 +12,7 @@ namespace glasnost_back.Entities
             Comunicado_Account_Rel = new HashSet<Comunicado_Account_Rel>();
             Comunicado_UserEnvio = new HashSet<Comunicado>();
             Comunicado_UserCriacao = new HashSet<Comunicado>();
-            Cliente_Responsavel = new HashSet<Cliente_Responsavel>();
+            Cliente_Responsavel = new HashSet<Empresa_Responsavel>();
             Denuncia = new HashSet<Denuncia>();
             DueDiligence_Consulta = new HashSet<DueDiligence_Consulta>();
             Denuncia_Relatorio = new HashSet<Denuncia_Relatorio>();
@@ -44,13 +44,13 @@ namespace glasnost_back.Entities
         public int Pessoa_Id { get; set; }
 
         public AccountPerfilAcesso PerfilAcesso { get; set; }
-        public Cliente Cliente { get; set; }
+        public Empresa Cliente { get; set; }
         public Pessoa Pessoa { get; set; }
 
         public ICollection<Comunicado_Account_Rel> Comunicado_Account_Rel { get; set; }
         public ICollection<Comunicado> Comunicado_UserEnvio { get; set; }
         public ICollection<Comunicado> Comunicado_UserCriacao { get; set; }
-        public ICollection<Cliente_Responsavel> Cliente_Responsavel { get; set; }
+        public ICollection<Empresa_Responsavel> Cliente_Responsavel { get; set; }
         public ICollection<Denuncia> Denuncia { get; set; }
         public ICollection<Denuncia_Relatorio> Denuncia_Relatorio { get; set; }
         public ICollection<DueDiligence_Consulta> DueDiligence_Consulta { get; set; }

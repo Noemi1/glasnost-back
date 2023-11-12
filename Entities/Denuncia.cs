@@ -1,12 +1,11 @@
-using System.Collections.Generic;
-using System.Web;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Web;
 
 namespace glasnost_back.Entities
 {
-
     [Table("Denuncia")]
     public partial class Denuncia
     {
@@ -53,7 +52,7 @@ namespace glasnost_back.Entities
 
         public int Protocolo { get; set; }
 
-        public bool Denuncia_Teste{ get; set; }
+        public bool Denuncia_Teste { get; set; }
 
         public DateTime? DataExclusao { get; set; }
 
@@ -61,7 +60,7 @@ namespace glasnost_back.Entities
 
         public virtual Area Area { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public virtual Empresa Cliente { get; set; }
 
         public virtual Denuncia_Acao Denuncia_Acao { get; set; }
 
@@ -85,7 +84,7 @@ namespace glasnost_back.Entities
 
         public virtual ICollection<Denuncia_Historico_Status> Denuncia_Historico_Status { get; set; }
 
-        public virtual ICollection<Denuncia_Relatorio> Denuncia_Relatorio  { get; set; }
+        public virtual ICollection<Denuncia_Relatorio> Denuncia_Relatorio { get; set; }
 
     }
 }
