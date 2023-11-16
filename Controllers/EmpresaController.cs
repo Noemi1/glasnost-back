@@ -2,6 +2,7 @@
 using glasnost_back.Models;
 using glasnost_back.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace glasnost_back.Controllers
 {
@@ -19,17 +20,45 @@ namespace glasnost_back.Controllers
         }
 
         [HttpGet()]
-        public ActionResult GetAll(bool? ativo)
+        public ActionResult GetAll()
         {
             try
             {
-                return Ok(_services.GetAll( ativo));
+                return Ok(_services.GetAll());
             }
             catch (Exception e)
             {
                 return StatusCode(500, e);
             }
         }
+        
+        [HttpGet("risco-compliance")]
+        public ActionResult GetRiscoCompliance()
+        {
+            try
+            {
+                return Ok(_services.GetRiscoCompliance());
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+
+
+        [HttpGet("tipo")]
+        public ActionResult GetTipo()
+        {
+            try
+            {
+                return Ok(_services.GetTipo());
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
+        
         [HttpGet("{Id}")]
         public ActionResult Get(int Id)
         {
@@ -43,7 +72,7 @@ namespace glasnost_back.Controllers
             }
         }
 
-        [HttpPost()]
+        [HttpPost]
         public ActionResult Insert(EmpresaResponse model)
         {
             try
@@ -97,5 +126,18 @@ namespace glasnost_back.Controllers
             }
         }
 
+        [HttpGet("valida-cnpj/{Id}/{CNPJ}")]
+        public ActionResult CNPJValido(int Id, long CNPJ)
+        {
+            try
+            {
+                var valid = _services.CNPJValido(Id, CNPJ);
+                return Ok(valid);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+        }
     }
 }

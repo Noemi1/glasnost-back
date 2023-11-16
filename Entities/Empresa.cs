@@ -10,7 +10,7 @@ namespace glasnost_back.Entities
     {
         public Empresa()
         {
-            Empresa_Cnae_Rel = new HashSet<Empresa_Cnae_Rel>();
+            Empresa_Cnae_Rel = new HashSet<EmpresaCnae_Rel>();
             Pessoa = new HashSet<Pessoa>();
         }
 
@@ -34,38 +34,31 @@ namespace glasnost_back.Entities
 
         public long CEP { get; set; }
 
-        public string Complemento { get; set; } = String.Empty;
+        public string? Complemento { get; set; }
 
-        public string IdAzureCronogramaImplantacao { get; set; } = String.Empty;
+        public string? EscopoResumido { get; set; }
 
-        public string NomeAzureCronogramaImplantacao { get; set; } = String.Empty;
+        public string? Email { get; set; } = String.Empty;
 
-        public string IdAzureLogo { get; set; } = String.Empty;
+        public string? TelefoneComercial { get; set; } = String.Empty;
 
-        public string NomeAzureLogo { get; set; } = String.Empty;
+        public string? Celular { get; set; } = String.Empty;
 
-        public string EscopoResumido { get; set; } = String.Empty;
-
-        public string Email { get; set; } = String.Empty;
-
-        public string TelefoneComercial { get; set; } = String.Empty;
-
-        public string Celular { get; set; } = String.Empty;
-
-        public string Contato { get; set; } = String.Empty;
+        public string? Contato { get; set; } = String.Empty;
 
         public bool DiligenciaPrevia { get; set; }
 
         public int RiscoCompliance_Id { get; set; }
 
-        public int? Tipo_Id { get; set; }
+        public int Tipo_Id { get; set; }
+
         public DateTime? DataDesativado { get; set; }
 
-        public virtual RiscoCompliance RiscoCompliance { get; set; }
+        public virtual EmpresaRiscoCompliance RiscoCompliance { get; set; }
 
-        public virtual Empresa_Tipo Tipo { get; set; }
+        public virtual EmpresaTipo Tipo { get; set; }
 
-        public virtual ICollection<Empresa_Cnae_Rel> Empresa_Cnae_Rel { get; set; }
+        public virtual ICollection<EmpresaCnae_Rel> Empresa_Cnae_Rel { get; set; }
         public virtual ICollection<Pessoa> Pessoa { get; set; }
 
 

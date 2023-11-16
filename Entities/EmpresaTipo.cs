@@ -6,16 +6,15 @@ using System.Web;
 
 namespace glasnost_back.Entities
 {
-    public class RiscoCompliance
+    public class EmpresaTipo
     {
-        public RiscoCompliance()
+        public EmpresaTipo()
         {
             Empresa = new HashSet<Empresa>();
         }
 
         public int Id { get; set; }
         public string Nome { get; set; } = string.Empty;
-
-        public virtual ICollection<Empresa> Empresa { get; set; }
+        public ICollection<Empresa> Empresa { get; set; }
     }
 }

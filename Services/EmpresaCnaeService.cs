@@ -27,7 +27,7 @@ namespace glasnost_back.Services
 
         public List<CnaeListResponse> GetAll()
         {
-            List<Empresa_Cnae> list = _db.Empresa_Cnae.OrderBy(n => n.Codigo).ToList();
+            List<EmpresaCnae> list = _db.EmpresaCnae.OrderBy(n => n.Codigo).ToList();
             var response = _mapper.Map<List<CnaeListResponse>>(list);
             return response;
         }

@@ -16,10 +16,10 @@ namespace glasnost_back.Helpers
             httpContextAccessor = _httpContextAccessor;
         }
         public virtual DbSet<Empresa> Empresa { get; set; }
-        public virtual DbSet<Empresa_Cnae> Empresa_Cnae { get; set; }
-        public virtual DbSet<Empresa_Cnae_Rel> Empresa_Cnae_Rel { get; set; }
-        public virtual DbSet<RiscoCompliance> RiscoCompliance { get; set; }
-        public virtual DbSet<Empresa_Tipo> Empresa_Tipo { get; set; } 
+        public virtual DbSet<EmpresaCnae> EmpresaCnae { get; set; }
+        public virtual DbSet<EmpresaCnae_Rel> EmpresaCnae_Rel { get; set; }
+        public virtual DbSet<EmpresaRiscoCompliance> EmpresaRiscoCompliance { get; set; }
+        public virtual DbSet<EmpresaTipo> EmpresaTipo { get; set; } 
         public virtual DbSet<Pessoa> Pessoa { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,14 +31,14 @@ namespace glasnost_back.Helpers
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Empresa_Cnae_Rel - Empresa
-            modelBuilder.Entity<Empresa_Cnae_Rel>()
+            // EmpresaCnae_Rel - Empresa
+            modelBuilder.Entity<EmpresaCnae_Rel>()
                 .HasOne(e => e.Empresa)
                 .WithMany(e => e.Empresa_Cnae_Rel)
                 .HasForeignKey(e => e.Empresa_Id);
 
-            // Empresa_Cnae_Rel - Cnae
-            modelBuilder.Entity<Empresa_Cnae_Rel>()
+            // EmpresaCnae_Rel - Cnae
+            modelBuilder.Entity<EmpresaCnae_Rel>()
                 .HasOne(e => e.Cnae)
                 .WithMany(e => e.Empresa_Cnae_Rel)
                 .HasForeignKey(e => e.Cnae_Id);
@@ -48,15 +48,15 @@ namespace glasnost_back.Helpers
                 .HasMany(e => e.Pessoa)
                 .WithOne(e => e.Empresa)
                 .HasForeignKey(e => e.Empresa_Id);
-         
-            // Empresa_RiscoCompliance - Empresa
-            modelBuilder.Entity<RiscoCompliance>()
+
+            // EmpresaRiscoCompliance - Empresa
+            modelBuilder.Entity<EmpresaRiscoCompliance>()
               .HasMany(e => e.Empresa)
               .WithOne(e => e.RiscoCompliance)
               .HasForeignKey(e => e.RiscoCompliance_Id);
 
-            // Empresa_Tipo - Empresa
-            modelBuilder.Entity<Empresa_Tipo>()
+            // EmpresaTipo - Empresa
+            modelBuilder.Entity<EmpresaTipo>()
               .HasMany(e => e.Empresa)
               .WithOne(e => e.Tipo)
               .HasForeignKey(e => e.Tipo_Id);

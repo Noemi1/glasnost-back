@@ -7,7 +7,7 @@ using System.Web;
 
 namespace glasnost_back.Entities
 {
-    public class Empresa_Cnae_Rel
+    public class EmpresaCnae_Rel
     {
         public int Id { get; set; }
 
@@ -15,7 +15,7 @@ namespace glasnost_back.Entities
 
         public int Cnae_Id { get; set; }
 
-        public virtual Empresa_Cnae Cnae { get; set; }
+        public virtual EmpresaCnae Cnae { get; set; }
 
         public virtual Empresa Empresa { get; set; }
 

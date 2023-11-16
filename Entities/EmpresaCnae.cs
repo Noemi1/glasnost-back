@@ -6,12 +6,12 @@ using System.Web;
 
 namespace glasnost_back.Entities
 {
-    public class Empresa_Cnae
+    public class EmpresaCnae
     {
 
-        public Empresa_Cnae()
+        public EmpresaCnae()
         {
-            Empresa_Cnae_Rel = new HashSet<Empresa_Cnae_Rel>();
+            Empresa_Cnae_Rel = new HashSet<EmpresaCnae_Rel>();
         }
         public int Id { get; set; }
 
@@ -19,7 +19,7 @@ namespace glasnost_back.Entities
 
         public string Descricao { get; set; } = String.Empty;
 
-        public virtual ICollection<Empresa_Cnae_Rel> Empresa_Cnae_Rel { get; set; }
+        public virtual ICollection<EmpresaCnae_Rel> Empresa_Cnae_Rel { get; set; }
 
     }
 }

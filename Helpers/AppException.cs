@@ -10,7 +10,7 @@ namespace glasnost_back.Helpers
         public AppException(string message) : base(message) { }
 
         public AppException(string message, params object[] args)
-            : base(String.Format(new CultureInfo("pt-BR", false), message, args))
+            : base(String.Format(CultureInfo.CurrentCulture, message, args))
         {
 
         }

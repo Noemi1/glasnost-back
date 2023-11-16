@@ -144,8 +144,8 @@ namespace glasnost_back.Utils
     {
         Denuncia_Relatorio,
         Denuncia_Arquivo,
-        Cliente_Cronograma_Implantacao,
-        Cliente_Logo,
+        Empresa_Cronograma_Implantacao,
+        Empresa_Logo,
         Treinamento_Video,
         Treinamento_Material,
         Documento,
