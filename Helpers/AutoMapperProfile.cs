@@ -12,7 +12,8 @@ namespace glasnost_back.Helpers
             // CreateMap<Source, Destination>();
 
             CreateMap<Empresa, EmpresaListResponse>();
-            CreateMap<Empresa, EmpresaResponse>();
+            CreateMap<Empresa, EmpresaResponse>()
+                .ForMember(dest => dest.Cnaes, m => m.MapFrom(source => source.Empresa_Cnae_Rel.Select(x => x.Cnae_Id).ToList()));
             CreateMap<EmpresaResponse, Empresa>();
 
             CreateMap<EmpresaCnae, CnaeListResponse>();

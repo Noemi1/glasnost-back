@@ -30,7 +30,7 @@ namespace glasnost_back.Entities
 
         public string Cidade { get; set; } = String.Empty;
 
-        public string Estado { get; set; } = String.Empty;
+        public string UF { get; set; } = String.Empty;
 
         public long CEP { get; set; }
 
@@ -38,13 +38,13 @@ namespace glasnost_back.Entities
 
         public string? EscopoResumido { get; set; }
 
-        public string? Email { get; set; } = String.Empty;
+        public string? Email { get; set; }
 
-        public string? TelefoneComercial { get; set; } = String.Empty;
+        public string? TelefoneComercial { get; set; }
 
-        public string? Celular { get; set; } = String.Empty;
+        public string? Celular { get; set; }
 
-        public string? Contato { get; set; } = String.Empty;
+        public string? Contato { get; set; }
 
         public bool DiligenciaPrevia { get; set; }
 

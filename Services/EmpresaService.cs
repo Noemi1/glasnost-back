@@ -4,6 +4,7 @@ using glasnost_back.Helpers;
 using glasnost_back.Models;
 using glasnost_back.Models.Empresa;
 using glasnost_back.Utils;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 
 namespace glasnost_back.Services
@@ -43,7 +44,9 @@ namespace glasnost_back.Services
 
         public EmpresaResponse Get(int Id)
         {
-            Empresa? model = _db.Empresa.FirstOrDefault(x => x.Id == Id);
+            Empresa? model = _db.Empresa
+                .Include(x => x.Empresa_Cnae_Rel)
+                .FirstOrDefault(x => x.Id == Id);
 
             if (model == null)
                 throw new Exception("Registro não encontrado");
@@ -82,8 +85,18 @@ namespace glasnost_back.Services
             Empresa entity = _mapper.Map<Empresa>(model);
             _db.Empresa.Add(entity);
             _db.SaveChanges();
-            var response = _mapper.Map<EmpresaResponse>(entity);
-            return response;
+            model.Id = entity.Id;
+            var cnaes = model.Cnaes.Select(x => new EmpresaCnae_Rel
+            {
+                Empresa_Id = model.Id,
+                Cnae_Id = x
+            });
+
+            _db.EmpresaCnae_Rel.AddRange(cnaes);
+            _db.SaveChanges();
+
+
+            return model;
         }
 
 
@@ -103,9 +116,23 @@ namespace glasnost_back.Services
 
             Empresa entity = _mapper.Map<Empresa>(model);
             _db.Empresa.Update(entity);
+
+
+            var cnaesEmpresa = _db.EmpresaCnae_Rel.Where(x => x.Empresa_Id == model.Id).Include(x => x.Cnae).ToList();
+
+            var cnaes = model.Cnaes.Select(x => new EmpresaCnae_Rel
+            {
+                Empresa_Id = model.Id,
+                Cnae_Id = x
+            });
+
+            _db.EmpresaCnae_Rel.RemoveRange(cnaesEmpresa);
+            _db.EmpresaCnae_Rel.AddRange(cnaes);
+
             _db.SaveChanges();
-            var response = _mapper.Map<EmpresaResponse>(entity);
-            return response;
+            model.Id = entity.Id;
+
+            return model;
         }
 
         public void Deactivated(int Id, bool active)
@@ -127,10 +154,13 @@ namespace glasnost_back.Services
 
         public void Delete(int Id)
         {
-            Empresa? model = _db.Empresa.FirstOrDefault(x => x.Id == Id);
+            Empresa? model = _db.Empresa
+                .Include(x => x.Empresa_Cnae_Rel)
+                .FirstOrDefault(x => x.Id == Id);
             if (model == null) 
                 throw new Exception("Registro não encontrado.");
 
+            _db.EmpresaCnae_Rel.RemoveRange(model.Empresa_Cnae_Rel);
             _db.Empresa.Remove(model);
             _db.SaveChanges();
             return;
