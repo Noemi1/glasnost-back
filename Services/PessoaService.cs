@@ -15,6 +15,7 @@ namespace glasnost_back.Services
         PessoaResponse Update(PessoaResponse pessoa);
         void Delete(int Id);
         void Deactivated(int Id, bool Active);
+        bool DocumentValido(int Id, long Document, bool PJ);
     }
 
     public class PessoaService : IPessoaService
@@ -35,7 +36,7 @@ namespace glasnost_back.Services
             List<Pessoa> list;
 
             if (ativo.HasValue)
-                list = _db.Pessoa.Where(x => x.Empresa_Id == empresaId && x.DataDesativado.HasValue == ativo).OrderBy(n => n.Nome).ToList(); 
+                list = _db.Pessoa.Where(x => x.Empresa_Id == empresaId && x.DataDesativado.HasValue != ativo).OrderBy(n => n.Nome).ToList(); 
              else
                 list = _db.Pessoa.Where(x => x.Empresa_Id == empresaId).OrderBy(n => n.Nome).ToList();
 
@@ -128,6 +129,28 @@ namespace glasnost_back.Services
             _db.Pessoa.Remove(model);
             _db.SaveChanges();
             return;
+        }
+        public bool DocumentValido(int Id, long Document, bool PJ)
+        {
+            var valid = true;
+            if (PJ)
+            {
+                valid = Validation.ValidaCNPJ(Document.ToString());
+                if (!valid) throw new Exception("CNPJ inválido");
+            } 
+            else
+            {
+                valid = Validation.ValidaCPF(Document.ToString());
+                if (!valid) throw new Exception("CPF inválido");
+            }
+
+
+
+            Pessoa? model = _db.Pessoa.FirstOrDefault(x => x.Documento == Document && x.PJ == PJ  && x.Id != Id);
+            if (model != null)
+                throw new Exception($"{ (PJ ? "CNPJ" : "CPF") } já cadastrado em outro registro.");
+
+            return true;
         }
     }
 }

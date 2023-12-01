@@ -18,7 +18,7 @@ namespace glasnost_back.Controllers
             _services = service;
         }
 
-        [HttpGet("All/{empresaId}/{ativo?}")]
+        [HttpGet("All/{empresaId}")]
         public ActionResult GetAll(int empresaId, bool? ativo)
         {
             try
