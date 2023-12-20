@@ -45,6 +45,8 @@ namespace glasnost_back.Entities
         public string? Celular { get; set; }
 
         public string? Contato { get; set; }
+        public string? CronogramaImplantacaoURL { get; set; }
+        public string? LogoDataUri{ get; set; }
 
         public bool DiligenciaPrevia { get; set; }
 
